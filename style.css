@@ -105,6 +105,7 @@ h2, h3 {
   /* Nudge to the left to make people read this first */
   position: relative; 
   left: -4rem;
+  /* top: 6rem; */
   width: 800px;
 }
 
@@ -166,7 +167,10 @@ make sections take up the full screen height to create pages.
 
 ********************************** */
 
-header, .summary, .preamble {
+header, .summary, .preamble, 
+.explanation, .participation, .benefits, 
+.requirements, footer, .design-selection, 
+.design-archives, .zen-resources  {
   /* Height 100vh */
   min-height: 100vh;
   /* Arrange content of each section with flex */
@@ -174,14 +178,6 @@ header, .summary, .preamble {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #94D2BD;
-}
-
-header {
-  /* background-image: url(./images/pattern-1.png); */
-  background-repeat: round;
-  /* background-position: center; */
-  /* background-size: 400px; */
 }
 
 h1 {
@@ -207,9 +203,6 @@ h2 {
 
 
 
-
-
-
 /* ******************************
 
 Summary 
@@ -218,36 +211,31 @@ Summary
 .summary {
   background-color: #001219;
   color: #94D2BD;
+  & p {
+    max-width: 600px;
+  }
+
+  & p:last-child {
+    font-size: 3rem;
+    font-weight: 100;
+  }
+
+  & a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 0.5rem 2rem;
+    border: 1px solid;
+    border-radius: 0.5rem;
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 40px;
+    background-color: #94D2BD;
+    color: #001219;
+  }
+  & a:hover {
+    background-color: #0A9396;
+  }
 }
-
-.summary p {
-  max-width: 600px;
-}
-
-.summary p:last-child {
-  font-size: 3rem;
-  font-weight: 100;
-}
-
-.summary a {
-  text-decoration: none;
-
-  display: inline-block;
-  padding: 0.5rem 2rem;
-  border: 1px solid;
-  border-radius: 0.5rem;
-  background-repeat: no-repeat;
-  background-position: right 1rem center;
-  background-size: 40px;
-  background-color: #94D2BD;
-  color: #001219;
-}
-
-.summary a:hover {
-  background-color: #0A9396;
-}
-
-
 
 
 
@@ -262,15 +250,14 @@ Preamble
 .preamble {
   background-color: #005F73;
   color: #E9D8A6;
-}
+  & > * {
+    max-width: 600px;
+  }
 
-.preamble > * {
-  max-width: 600px;
-}
-
-.preamble h3 {
-  font-size: 3rem;
-  font-weight: 100;
+  & h3 {
+    font-size: 3rem;
+    font-weight: 100;
+  }
 }
 
 
@@ -283,25 +270,19 @@ explanation
 .explanation {
   background-color: #0A9396;
   padding: 4rem 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
   color: #E9D8A6;
+
+  /* Select all children of .explanation with * */
+  & > * {
+    max-width: 600px;
+  }
+
+  & h3 {
+    font-size: 3rem;
+    font-weight: 100;
+  }
 }
-
-/* Select all children of .explanation with * */
-.explanation > * {
-  max-width: 600px;
-}
-
-.explanation h3 {
-  font-size: 3rem;
-  font-weight: 100;
-}
-
-
 
 
 
@@ -314,30 +295,25 @@ participation
 .participation {
   background-color: #E9D8A6;
   padding: 4rem 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   color: #9B2226;
-}
 
-.participation > * {
-  max-width: 600px;
-}
+  & > * {
+    max-width: 600px;
+  }
 
-.participation a {
-  color: #001219;
-}
+  & a {
+    color: #001219;
+  }
 
-.participation h3 {
-  font-size: 3rem;
-  font-weight: 100;
-}
+  & h3 {
+    font-size: 3rem;
+    font-weight: 100;
+  }
 
-/* Style the hover, We'll do this for each section since the background color changes. */
-.participation a:hover {
-  color: #005F73;
+  /* Style the hover, We'll do this for each section since the background color changes. */
+  & a:hover {
+    color: #005F73;
+  }
 }
 
 
@@ -351,27 +327,23 @@ benefits
 ***************************** */
 
 .benefits {
-    background-color: #EE9B00;
-    padding: 4rem 0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  background-color: #EE9B00;
+  padding: 4rem 0;
+  min-height: 100vh;
+  color: #001219;
+  
+  & > * {
+    max-width: 600px;
+  }
+
+  & a {
     color: #001219;
   }
-  
-.benefits > * {
-  max-width: 600px;
-}
 
-.benefits a {
-  color: #001219;
-}
-
-.benefits h3 {
-  font-size: 3rem;
-  font-weight: 100;
+  & h3 {
+    font-size: 3rem;
+    font-weight: 100;
+  }
 }
 
 
@@ -385,31 +357,27 @@ requirements
 .requirements {
   background-color: #CA6702;
   padding: 4rem 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
   color: #001219;
-}
 
-.requirements > * {
-max-width: 600px;
-}
+  & > * {
+  max-width: 600px;
+  }
 
-.requirements a {
-color: #E9D8A6;
-}
+  & a {
+  color: #E9D8A6;
+  }
 
-.requirements h3 {
-font-size: 3rem;
-font-weight: 100;
-}
+  & h3 {
+  font-size: 3rem;
+  font-weight: 100;
+  }
 
-.requirements a:hover {
-  color: #94D2BD;
-}
+  & a:hover {
+    color: #94D2BD;
+  }
 
+}
 
 
 /* **************************
@@ -421,63 +389,60 @@ footer
 footer {
   background-color: #BB3E03;
   padding: 4rem 0;
-  min-height: 100vh;
-  display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
+
   color: #001219;
-}
 
-footer > * {
-  max-width: 600px;
-}
+  & > * {
+    max-width: 600px;
+  }
 
-footer a {
-  width: 100px;
-  height: 100px;
-  color: #001219;
-  border-radius: 50%;
-  margin: 1rem;
-  font-size: 2rem;
-  font-weight: 100;
-  text-decoration: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  & a {
+    width: 100px;
+    height: 100px;
+    color: #001219;
+    border-radius: 50%;
+    margin: 1rem;
+    font-size: 2rem;
+    font-weight: 100;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-footer h3 {
-  font-size: 3rem;
-  font-weight: 100;
-}
+  & h3 {
+    font-size: 3rem;
+    font-weight: 100;
+  }
 
-/* Use nth-child() to select each child by index */
-footer a:nth-child(1) {
-  background-color: #005F73;
-}
+  /* Use nth-child() to select each child by index */
+  & a:nth-child(1) {
+    background-color: #005F73;
+  }
 
-footer a:nth-child(2) {
-  background-color: #0A9396;
-}
+  & a:nth-child(2) {
+    background-color: #0A9396;
+  }
 
 
-footer a:nth-child(3) {
-  background-color: #94D2BD;
-}
+  & a:nth-child(3) {
+    background-color: #94D2BD;
+  }
 
-footer a:nth-child(4) {
-  background-color: #E9D8A6;
-}
+  & a:nth-child(4) {
+    background-color: #E9D8A6;
+  }
 
-footer a:nth-child(5) {
-  background-color: #EE9B00;
-}
+  & a:nth-child(5) {
+    background-color: #EE9B00;
+  }
 
-/* footer a:hover:nth-child(1) { */
-footer a:hover {
-  background-color: #001219;
-  color: #E9D8A6;
+  /* footer a:hover:nth-child(1) { */
+  & a:hover {
+    background-color: #001219;
+    color: #E9D8A6;
+  }
 }
 
 
@@ -496,14 +461,10 @@ Select a Design
 
   background-color: #AE2012;
   padding: 4rem 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   color: #001219;
 
   /* Use the & selector to define nested styles */
+  /* .design-selection h3 {} */
   & h3 {
     font-size: 3rem;
     font-weight: 100;
@@ -516,74 +477,74 @@ Select a Design
     grid-template-columns: repeat(3, 200px);
     grid-template-rows: repeat(3, 200px);
     gap: 1rem;
-  }
 
-  & nav ul li {
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-    /* Use a transparent color! */
-    color: rgba(255, 255, 255, 0.27);
-    font-size: 3rem;
-    font-weight:900;
-    /* Adjust line-height to nudeg things */
-    line-height: 1.1;
-  }
+    & li {
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+      /* Use a transparent color! */
+      color: rgba(255, 255, 255, 0.27);
+      font-size: 3rem;
+      font-weight:900;
+      /* Adjust line-height to nudeg things */
+      line-height: 1.1;
+      & a {
+        color: #94D2BD;
+        text-decoration: none;
+        font-size: 1rem;
+        margin: 0;
+        font-weight: normal;
+      }
 
-  & nav ul li a {
-    color: #94D2BD;
-    text-decoration: none;
-    font-size: 1rem;
-    margin: 0;
-    font-weight: normal;
-  }
+      & a:hover {
+        color: #E9D8A6;
+      }
+    }
 
+    & li:nth-child(4n) { 
+      /* L T */
+      justify-content: flex-start;
+      align-items: flex-start;
+      background-color: #001219;
+    }
+  
+    /* Use #n+x to offset selection index */
+    & li:nth-child(4n+1) { 
+      /* R T */
+      justify-content: flex-end;
+      align-items: flex-start;
+      background-color: #005F73;
+    }
+  
+    & li:nth-child(4n+2) { 
+      /* R B */
+      justify-content: flex-end;
+      align-items: flex-end;
+      background-color: #0A9396;
+    }
+  
+    & li:nth-child(4n+3) { 
+      /* L B */
+      justify-content: flex-start;
+      align-items: flex-end;
+      background-color: #94D2BD;
+      color: #00121925;
+    }
+  
+    & li:nth-child(4n+3) a { 
+      color: #005F73;
+    }
+
+    & li:nth-child(4n+3) a:hover { 
+      color: #001219;
+    }
+
+    & li a:last-child {
+      margin-top: 0.5rem;
+    }
+  }
   /* Use nth-child() with #n to select indexes that that are mod n */
-  & nav ul li:nth-child(4n) { 
-    /* L T */
-    justify-content: flex-start;
-    align-items: flex-start;
-    background-color: #001219;
-  }
-
-  /* Use #n+x to offset selection index */
-  & nav ul li:nth-child(4n+1) { 
-    /* R T */
-    justify-content: flex-end;
-    align-items: flex-start;
-    background-color: #005F73;
-  }
-
-  & nav ul li:nth-child(4n+2) { 
-    /* R B */
-    justify-content: flex-end;
-    align-items: flex-end;
-    background-color: #0A9396;
-  }
-
-  & nav ul li:nth-child(4n+3) { 
-    /* L B */
-    justify-content: flex-start;
-    align-items: flex-end;
-    background-color: #94D2BD;
-    color: #00121925;
-  }
-
-  & nav ul li:nth-child(4n+3) a { 
-    color: #005F73;
-  }
-
-  & nav ul li a:hover {
-    color: #E9D8A6;
-  }
-
-  & nav ul li:nth-child(4n+3) a:hover { 
-    color: #001219;
-  }
-
-  & nav ul li a:last-child {
-    margin-top: 0.5rem;
-  }
+  
 }
 
 
@@ -599,11 +560,6 @@ design-archives
 .design-archives {
   background-color: #CA6702;
   padding: 4rem 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   color: #001219;
 
   & ul {
@@ -661,11 +617,6 @@ zen-resources
 .zen-resources {
   background-color: #9B2226;
   padding: 4rem 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   color: #001219;
 
   & ul {
