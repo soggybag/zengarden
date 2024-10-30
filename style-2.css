@@ -1,0 +1,178 @@
+html {
+  background-color: #EEF0F2;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.5;
+  font-weight: 300;
+  background-color: #EEF0F2;
+  color: #1C1C1C;
+}
+
+a {
+  color: #A4161A;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+a:hover {
+  color: #E5383B;
+}
+
+* {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+h1, h2, h3, p, footer, header {
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 6rem;
+  font-weight: 100;
+  line-height: 0.9;
+  text-align: right;
+}
+
+h2 {
+  font-size: 4rem;
+  font-weight: 900;
+  line-height: 0.9;
+}
+
+h3 {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+  margin: auto;
+}
+
+header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.preamble {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+
+  & h3 {
+    text-align: right;
+  }
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas: 
+  'a a a b b b'
+  'c c c c c c'
+  'd d d d d d'
+  'e e e e e e';
+
+  gap: 2rem;
+}
+
+.explanation {
+  grid-area: a;
+  & h3 {
+    text-align: right;
+  }
+}
+
+.participation {
+  grid-area: b;
+}
+
+.benefits {
+  grid-area: c;
+}
+
+footer {
+  grid-area: e;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+
+  & a {
+    font-size: 2rem;
+    padding: 1rem;
+  }
+}
+
+.requirements {
+  grid-area: d;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 3rem;
+  grid-template-areas: 
+  'a a a a a a'
+  'b b c c c c'
+  'd d d e e e'
+  'f f f f f f';
+  gap: 2rem;
+
+  & h3 {
+    grid-area: a;
+    text-align: right;
+  }
+  & p:nth-child(2) {
+    grid-area: b;
+  }
+
+  & p:nth-child(3) {
+    grid-area: c;
+  }
+
+  & p:nth-child(4) {
+    grid-area: d;
+  }
+
+  & p:nth-child(5) {
+    grid-area: e;
+  }
+
+  & p:nth-child(6) {
+    grid-area: f;
+  }
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 
+  'a b'
+  'a c';
+  gap: 2rem;
+}
+
+.design-selection {
+  grid-area: a;
+  & * {
+    text-align: right;
+  }
+}
+
+.design-archives {
+  grid-area: b;
+}
+
+.resources {
+  grid-area: c;
+}
