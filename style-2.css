@@ -58,6 +58,8 @@ h3 {
   margin: auto;
 }
 
+
+
 header {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -81,10 +83,10 @@ header {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-areas: 
-  'a a a b b b'
-  'c c c c c c'
-  'd d d d d d'
-  'e e e e e e';
+    'a a a b b b'
+    'c c c c c c'
+    'd d d d d d'
+    'e e e e e e';
 
   gap: 2rem;
 }
@@ -118,6 +120,7 @@ footer {
 
 .requirements {
   grid-area: d;
+
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 3rem;
@@ -176,3 +179,53 @@ footer {
 .resources {
   grid-area: c;
 }
+
+
+/* Grid containers */
+
+/* header, .preamble, .benefits, .main, .requirements, .wrapper, footer, .design-selection, .design-archives, .resources {
+  border: 2px solid cornflowerblue;
+} */
+
+/* Grid cells */
+
+/* h1, h2, h3, p, ul {
+  border: 1px solid fuchsia;
+} */
+
+
+/* Add some grdients */
+/* body {
+  background: linear-gradient(red, blue);
+} */
+
+
+/* text Gradient Fill - Webkit only */
+h2 {
+  background-image: linear-gradient(
+    -135deg, 
+    rgb(233, 86, 63), 
+    rgb(50, 120, 216), 
+    rgba(244, 41, 18, 0.886));
+
+  background-clip: text;
+  /* color: rgba(0, 0, 0, 0.5); */
+  color: transparent;
+  /* -webkit-text-fill-color: transparent; */
+  padding-bottom: 10px;
+}
+
+/* Use first line to to target the first line! */
+p::first-line {
+  font-weight: 500;
+}
+
+/* Create drop cap */
+/* p::first-letter {
+  /* float */
+  font-size: 2rem;
+  float: left;
+  margin-right: 0.5rem;
+  border: 1px solid;
+  padding: 0.5rem;
+} */
