@@ -18,6 +18,10 @@ p, h1, h2, h3, ul {
   margin-bottom: 1rem;
 }
 
+h3 {
+  font-size: 2rem;
+}
+
 a {
   text-decoration: none;
   color: fuchsia;
@@ -247,7 +251,6 @@ a:hover {
         margin-bottom: 1rem;
       }
     }
-
   }
 
   & .design-archives {
