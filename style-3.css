@@ -15,11 +15,12 @@ body {
 }
 
 p, h1, h2, h3, ul {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 h3 {
-  font-size: 2rem;
+  font-size: 3rem;
+  line-height: 1;
 }
 
 a {
@@ -47,6 +48,7 @@ a:hover {
   /* Intro */
   & .intro {
     border: 2px solid red;
+    /* https://css-tricks.com/almanac/properties/g/grid-column/#aa-span-integer */
     grid-column: span 6;
   
     display: grid;
