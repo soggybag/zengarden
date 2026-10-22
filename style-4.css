@@ -1,0 +1,229 @@
+
+
+
+/* Colors */
+
+:root {
+  /* CSS HEX */
+  --ivory: #f6f7ebff;
+  --fiery-terracotta: #e94f37ff;
+  --gunmetal: #393e41ff;
+
+  /* CSS HSL */
+  --ivory: hsla(65, 43%, 95%, 1);
+  --fiery-terracotta: hsla(8, 80%, 56%, 1);
+  --gunmetal: hsla(203, 7%, 24%, 1);
+
+}
+
+/* 
+
+If you have defined colors by hand already. Try using a prompt like: 
+
+Extract all of the colors, define them as custom properties at the 
+top of the page. 
+
+You can do the same with font sizes and spacing. 
+
+Extract all of the font sizes and define them at the top of the page
+as custom properties. 
+
+Optional, add: Can we try using that thirds thing where every value is 
+1.25 of the previous?
+
+Do same for spacing: 
+
+Can you extract spacing values and defined them as custom properties.
+
+These are all great use of AI. The task is repetetive, tedious, and 
+prone to human error! 
+
+*/
+
+
+/* 
+
+Try this prompt: 
+
+Can you write me a style sheet that uses the nesting selector &. 
+It should have a selector that targets each of the elements on the page. 
+No other rules or property declarations. A few comments to serve as landmarks.
+
+*/
+
+
+
+/* ********************************
+
+Page
+
+********************************** */
+
+body {
+
+  & abbr {}
+
+  & a {}
+  & a:hover {}
+
+  & .page-wrapper {
+
+    /* ********************************
+
+    Intro
+
+    ********************************** */
+
+    & .intro {
+
+      /* Header */
+      & header {
+        & h1 {}
+        & h2 {}
+      }
+
+      /* Summary */
+      & .summary {
+        & p:nth-of-type(1) {}
+        & p:nth-of-type(2) {}
+        & a {}
+        & a:hover {}
+      }
+
+      /* Preamble */
+      & .preamble {
+        & h3 {}
+        & p:nth-of-type(1) {}
+        & p:nth-of-type(2) {}
+        & p:nth-of-type(3) {}
+      }
+    }
+
+    /* ********************************
+
+    Main
+
+    ********************************** */
+
+    & .main {
+
+      /* Explanation */
+      & .explanation {
+        & h3 {}
+        & p:nth-of-type(1) {}
+        & p:nth-of-type(2) {}
+      }
+
+      /* Participation */
+      & .participation {
+        & h3 {}
+        & p:nth-of-type(1) {}
+        & p:nth-of-type(2) {}
+        & p:nth-of-type(3) {}
+        & a {}
+        & a:hover {}
+      }
+
+      /* Benefits */
+      & .benefits {
+        & h3 {}
+        & p {}
+      }
+
+      /* Requirements */
+      & .requirements {
+        & h3 {}
+        & p:nth-of-type(1) {}
+        & p:nth-of-type(2) {}
+        & p:nth-of-type(3) {}
+        & p:nth-of-type(4) {}
+        & p:nth-of-type(5) {}
+        & a {}
+        & a:hover {}
+      }
+
+      /* Footer */
+      & footer {
+        & a {}
+        & a:hover {}
+        & .zen-validate-html {}
+        & .zen-validate-css {}
+        & .zen-license {}
+        & .zen-accessibility {}
+        & .zen-github {}
+      }
+    }
+
+    /* ********************************
+
+    Sidebar
+
+    ********************************** */
+
+    & .sidebar {
+
+      & .wrapper {
+
+        /* Select a Design */
+        & .design-selection {
+          & h3 {}
+          & nav {
+            & ul {
+              & li {
+                & .design-name {}
+                & .designer-name {}
+                & a:hover {}
+              }
+            }
+          }
+        }
+
+        /* Archives */
+        & .design-archives {
+          & h3 {}
+          & nav {
+            & ul {
+              & li {}
+              & .next {
+                & a {}
+                & .indicator {}
+              }
+              & .viewall {
+                & a {}
+              }
+              & a:hover {}
+            }
+          }
+        }
+
+        /* Resources */
+        & .zen-resources {
+          & h3 {}
+          & ul {
+            & li {}
+            & .view-css {}
+            & .css-resources {}
+            & .zen-faq {}
+            & .zen-submit {}
+            & .zen-translations {}
+            & a {}
+            & a:hover {}
+          }
+        }
+      }
+    }
+  }
+
+  /* ********************************
+
+  Extra divs
+
+  ********************************** */
+
+  & .extra1 {}
+  & .extra2 {}
+  & .extra3 {}
+  & .extra4 {}
+  & .extra5 {}
+  & .extra6 {}
+}

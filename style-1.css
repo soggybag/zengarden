@@ -1,6 +1,6 @@
 /* ********************************
 
-Import custom fonts 
+Import custom fonts
 - @import
 - Google Fonts
 
@@ -8,39 +8,34 @@ Import custom fonts
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sedgwick+Ave&display=swap');
 
+/* ********************************
 
-/* 
-
-
-
-TODO: 
+TODO:
 
 1. Background images
 2. Gradients
   - https://projects.verou.me/css3patterns/
   - https://css-pattern.com
-3. Multiple Background images 
+3. Multiple Background images
   - Layering and patterns
-4. Background attachment 
-5. 
+4. Background attachment
+5.
 
 1. Position
-  - static 
-  - absolute 
-  - relative 
+  - static
+  - absolute
+  - relative
   - sticky
   - fixed
 
   parallax scrolling
 
-
-*/
-
+********************************** */
 
 
-/* ******************************
+/* ********************************
 
-Colors from : https://coolors.co/palette/001219-005f73-0a9396-94d2bd-e9d8a6-ee9b00-ca6702-bb3e03-ae2012-9b2226
+Colors from: https://coolors.co/palette/001219-005f73-0a9396-94d2bd-e9d8a6-ee9b00-ca6702-bb3e03-ae2012-9b2226
 
 https://coolors.co/palettes/trending
 
@@ -50,17 +45,17 @@ Cool Colors:
   #0A9396
   #94D2BD
   #E9D8A6 Light
-Warm Colors
-  #EE9B00 Light 
+Warm Colors:
+  #EE9B00 Light
   #CA6702
   #BB3E03
   #AE2012
   #9B2226 Dark
 
-TODO: 
+TODO:
   - Pick a color palette!
-  - Copy the colors 
-  - Trye these: 
+  - Copy the colors
+  - Try these:
     - https://coolors.co/palette/2b2d42-8d99ae-edf2f4-ef233c-d90429
     - https://coolors.co/palette/fffcf2-ccc5b9-403d39-252422-eb5e28
     - https://coolors.co/palette/f94144-f3722c-f8961e-f9844a-f9c74f-90be6d-43aa8b-4d908e-577590-277da1
@@ -68,10 +63,11 @@ TODO:
     - https://coolors.co/palette/0a0908-22333b-eae0d5-c6ac8f-5e503f
     - https://coolors.co/palette/540000-85ff9e-47ce73-0affed-0f084b-290850-420754-5b0758-310a31
 
-********************************* */
+********************************** */
 
 :root {
-  --color-cool-1: #001219; /* dark */
+  /* Colors */
+  --color-cool-1: #001219; /* Dark */
   --color-cool-2: #005F73;
   --color-cool-3: #0A9396;
   --color-cool-4: #94D2BD;
@@ -108,16 +104,26 @@ TODO:
   --space-md: 2rem;
   --space-lg: 3rem;
   --space-xl: 4rem;
+
+  /* Layout */
+  --content-width: 600px;
 }
 
-/* Set the font family size weight and line heigth and color here!  */
+
+/* ********************************
+
+Base styles
+
+********************************** */
+
+/* Set the font family, size, weight, line height and color here! */
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: var(--font-size-base);
-  line-height: 1.55;
-  background-color: var(--color-cool-4);
-  color: var(--color-cool-1);
   font-weight: 200;
+  line-height: 1.55;
+  color: var(--color-cool-1);
+  background-color: var(--color-cool-4);
 }
 
 /* Set a default link style */
@@ -132,18 +138,38 @@ a {
 }
 
 /* Add some margin bottom on all our semantic blocks */
-h1, h2, h3, p, blockquote, ul, ol { 
-  margin-bottom: var(--space-sm); 
+h1, h2, h3, p, blockquote, ul, ol {
+  margin-bottom: var(--space-sm);
 }
 
-/* Style the headings. */
+
+/* ********************************
+
+Headings
+
+********************************** */
+
+h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-sm);
+  margin: 0;
+
+  font-family: "Poppins", sans-serif;
+  font-size: var(--font-size-xl);
+  font-weight: 900;
+  font-style: normal;
+  color: var(--color-warm-3);
+}
+
 h2, h3 {
-  /* Make these headings heaviest weight, makes them standout */
+  /* Make these headings heaviest weight, makes them stand out */
   font-weight: 900 !important;
   /* Make them step back by making them transparent */
   opacity: 0.75;
   /* Nudge to the left to make people read this first */
-  position: relative; 
+  position: relative;
   left: calc(-1 * var(--space-xl));
   /* top: 6rem; */
   width: 800px;
@@ -151,10 +177,13 @@ h2, h3 {
 
 h2 {
   /* Needed to nudge this to make it look nice */
-  left: var(--space-sm); 
-  text-align: left;
-}
+  left: var(--space-sm);
+  margin-top: calc(-1 * var(--space-lg));
 
+  font-size: var(--font-size-md);
+  text-align: left;
+  color: var(--color-cool-3);
+}
 
 
 /* ************************************
@@ -169,30 +198,27 @@ Use the Extra Divs!
 
 .extra1 {
   /* Use position fixed */
-  position:fixed;
+  position: fixed;
   /* z-index: -1; */
-
   left: 80%;
   top: 50px;
 
   width: 100px;
   height: 100px;
-
+  border-radius: 50%;
   background-color: var(--color-cool-1);
 
-  border-radius: 50%;
-
   /* Stack up some box shadows */
-  box-shadow: 
-    0px 100px 0 var(--color-cool-2),
-    0px 200px 0 var(--color-cool-3),
-    0px 300px 0 var(--color-cool-4),
-    0px 400px 0 var(--color-cool-5),
-    0px 500px 0 var(--color-warm-5),
-    0px 600px 0 var(--color-warm-4),
-    0px 700px 0 var(--color-warm-3),
-    0px 800px 0 var(--color-warm-2),
-    0px 900px 0 var(--color-warm-1);
+  box-shadow:
+    0 100px 0 var(--color-cool-2),
+    0 200px 0 var(--color-cool-3),
+    0 300px 0 var(--color-cool-4),
+    0 400px 0 var(--color-cool-5),
+    0 500px 0 var(--color-warm-5),
+    0 600px 0 var(--color-warm-4),
+    0 700px 0 var(--color-warm-3),
+    0 800px 0 var(--color-warm-2),
+    0 900px 0 var(--color-warm-1);
 }
 
 
@@ -203,14 +229,14 @@ Making a single page site
 - flex
 - type selector
 
-make sections take up the full screen height to create pages.
+Make sections take up the full screen height to create pages.
 
 ********************************** */
 
-header, .summary, .preamble, 
-.explanation, .participation, .benefits, 
-.requirements, footer, .design-selection, 
-.design-archives, .zen-resources  {
+header, .summary, .preamble,
+.explanation, .participation, .benefits,
+.requirements, footer, .design-selection,
+.design-archives, .zen-resources {
   /* Height 100vh */
   min-height: 100vh;
   /* Arrange content of each section with flex */
@@ -220,39 +246,19 @@ header, .summary, .preamble,
   align-items: center;
 }
 
-h1 {
-  color: var(--color-warm-3);
-  font-size: var(--font-size-xl);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  font-family: "Poppins", sans-serif;
-  font-weight: 900;
-  font-style: normal;
-
-  padding: var(--space-sm);
-  margin: 0;
-}
-
-h2 {
-  font-size: var(--font-size-md);
-  color: var(--color-cool-3);
-  margin-top: calc(-1 * var(--space-lg));
-}
-
-
 
 /* ******************************
 
-Summary 
+Summary
 
 ********************************* */
+
 .summary {
-  background-color: var(--color-cool-1);
   color: var(--color-cool-4);
+  background-color: var(--color-cool-1);
+
   & p {
-    max-width: 600px;
+    max-width: var(--content-width);
   }
 
   & p:last-child {
@@ -261,37 +267,36 @@ Summary
   }
 
   & a {
-    text-decoration: none;
     display: inline-block;
     padding: var(--space-xs) var(--space-md);
     border: 1px solid;
-    border-radius: 0.5rem;
-    background-repeat: no-repeat;
-    background-position: right 1rem center;
-    background-size: 40px;
-    background-color: var(--color-cool-4);
+    border-radius: var(--space-xs);
     color: var(--color-cool-1);
+    background-color: var(--color-cool-4);
+    background-repeat: no-repeat;
+    background-position: right var(--space-sm) center;
+    background-size: 40px;
   }
+
   & a:hover {
     background-color: var(--color-cool-3);
   }
 }
 
 
-
-
 /* ******************************
 
-Preamble 
+Preamble
 - something > *
 
 ********************************* */
 
 .preamble {
-  background-color: var(--color-cool-2);
   color: var(--color-cool-5);
+  background-color: var(--color-cool-2);
+
   & > * {
-    max-width: 600px;
+    max-width: var(--content-width);
   }
 
   & h3 {
@@ -303,19 +308,18 @@ Preamble
 
 /* *******************************
 
-explanation
+Explanation
 
 ********************************** */
 
 .explanation {
-  background-color: var(--color-cool-3);
   padding: var(--space-xl) 0;
-  align-items: center;
   color: var(--color-cool-5);
+  background-color: var(--color-cool-3);
 
   /* Select all children of .explanation with * */
   & > * {
-    max-width: 600px;
+    max-width: var(--content-width);
   }
 
   & h3 {
@@ -325,24 +329,19 @@ explanation
 }
 
 
-
 /* ***************************
 
-participation
+Participation
 
 ****************************** */
 
 .participation {
-  background-color: var(--color-cool-5);
   padding: var(--space-xl) 0;
   color: var(--color-warm-1);
+  background-color: var(--color-cool-5);
 
   & > * {
-    max-width: 600px;
-  }
-
-  & a {
-    color: var(--color-cool-1);
+    max-width: var(--content-width);
   }
 
   & h3 {
@@ -350,110 +349,106 @@ participation
     font-weight: 100;
   }
 
-  /* Style the hover, We'll do this for each section since the background color changes. */
+  & a {
+    color: var(--color-cool-1);
+  }
+
+  /* Style the hover. We'll do this for each section since the background color changes. */
   & a:hover {
     color: var(--color-cool-2);
   }
 }
 
 
-
-
-
 /* **************************
 
-benefits
+Benefits
 
 ***************************** */
 
 .benefits {
-  background-color: var(--color-warm-5);
   padding: var(--space-xl) 0;
-  min-height: 100vh;
   color: var(--color-cool-1);
-  
-  & > * {
-    max-width: 600px;
-  }
+  background-color: var(--color-warm-5);
 
-  & a {
-    color: var(--color-cool-1);
+  & > * {
+    max-width: var(--content-width);
   }
 
   & h3 {
     font-size: var(--font-size-lg);
     font-weight: 100;
   }
-}
 
+  & a {
+    color: var(--color-cool-1);
+  }
+}
 
 
 /* **************************
 
-requirements
+Requirements
 
 ***************************** */
 
 .requirements {
-  background-color: var(--color-warm-4);
   padding: var(--space-xl) 0;
-  align-items: center;
   color: var(--color-cool-1);
+  background-color: var(--color-warm-4);
 
   & > * {
-  max-width: 600px;
-  }
-
-  & a {
-  color: var(--color-cool-5);
+    max-width: var(--content-width);
   }
 
   & h3 {
-  font-size: var(--font-size-lg);
-  font-weight: 100;
+    font-size: var(--font-size-lg);
+    font-weight: 100;
+  }
+
+  & a {
+    color: var(--color-cool-5);
   }
 
   & a:hover {
     color: var(--color-cool-4);
   }
-
 }
 
 
 /* **************************
 
-footer
+Footer
 
 ***************************** */
 
 footer {
-  background-color: var(--color-warm-3);
-  padding: var(--space-xl) 0;
   flex-direction: row;
-
+  padding: var(--space-xl) 0;
   color: var(--color-cool-1);
+  background-color: var(--color-warm-3);
 
   & > * {
-    max-width: 600px;
-  }
-
-  & a {
-    width: 100px;
-    height: 100px;
-    color: var(--color-cool-1);
-    border-radius: 50%;
-    margin: var(--space-sm);
-    font-size: var(--font-size-md);
-    font-weight: 100;
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    max-width: var(--content-width);
   }
 
   & h3 {
     font-size: var(--font-size-lg);
     font-weight: 100;
+  }
+
+  & a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    margin: var(--space-sm);
+    border-radius: 50%;
+
+    font-size: var(--font-size-md);
+    font-weight: 100;
+    color: var(--color-cool-1);
   }
 
   /* Use nth-child() to select each child by index */
@@ -464,7 +459,6 @@ footer {
   & a:nth-child(2) {
     background-color: var(--color-cool-3);
   }
-
 
   & a:nth-child(3) {
     background-color: var(--color-cool-4);
@@ -480,28 +474,26 @@ footer {
 
   /* footer a:hover:nth-child(1) { */
   & a:hover {
-    background-color: var(--color-cool-1);
     color: var(--color-cool-5);
+    background-color: var(--color-cool-1);
   }
 }
-
 
 
 /* ******************************************
 
 Select a Design
 
-- Grid 
+- Grid
 - Flex
 - &
 
 ****************************************** */
 
 .design-selection {
-
-  background-color: var(--color-warm-2);
   padding: var(--space-xl) 0;
   color: var(--color-cool-1);
+  background-color: var(--color-warm-2);
 
   /* Use the & selector to define nested styles */
   /* .design-selection h3 {} */
@@ -511,29 +503,29 @@ Select a Design
   }
 
   & nav ul {
-    padding: 0;
-    list-style: none;
     display: grid;
     grid-template-columns: repeat(3, 200px);
     grid-template-rows: repeat(3, 200px);
-    gap: var(--space-sm);
+    gap: var(--space-lg);
+    padding: 0;
+    list-style: none;
 
     & li {
       display: flex;
       flex-direction: column;
       padding: var(--space-sm);
+
+      font-size: var(--font-size-lg);
+      font-weight: 900;
+      /* Adjust line-height to nudge things */
+      line-height: 1.1;
       /* Use a transparent color! */
       color: rgba(255, 255, 255, 0.27);
-      font-size: var(--font-size-lg);
-      font-weight:900;
-      /* Adjust line-height to nudeg things */
-      line-height: 1.1;
+
       & a {
-        color: var(--color-cool-4);
-        text-decoration: none;
         font-size: var(--font-size-sm);
-        margin: 0;
         font-weight: normal;
+        color: var(--color-cool-4);
       }
 
       & a:hover {
@@ -541,123 +533,114 @@ Select a Design
       }
     }
 
-    & li:nth-child(4n) { 
+    & li a:last-child {
+      margin-top: var(--space-xs);
+    }
+
+    /* Use nth-child() with #n to select indexes that are mod n */
+    & li:nth-child(4n) {
       /* L T */
       justify-content: flex-start;
       align-items: flex-start;
       background-color: var(--color-cool-1);
     }
-  
+
     /* Use #n+x to offset selection index */
-    & li:nth-child(4n+1) { 
+    & li:nth-child(4n+1) {
       /* R T */
       justify-content: flex-end;
       align-items: flex-start;
       background-color: var(--color-cool-2);
     }
-  
-    & li:nth-child(4n+2) { 
+
+    & li:nth-child(4n+2) {
       /* R B */
       justify-content: flex-end;
       align-items: flex-end;
       background-color: var(--color-cool-3);
     }
-  
-    & li:nth-child(4n+3) { 
+
+    & li:nth-child(4n+3) {
       /* L B */
       justify-content: flex-start;
       align-items: flex-end;
-      background-color: var(--color-cool-4);
       color: color-mix(in srgb, var(--color-cool-1) 14.5%, transparent);
+      background-color: var(--color-cool-4);
     }
-  
-    & li:nth-child(4n+3) a { 
+
+    & li:nth-child(4n+3) a {
       color: var(--color-cool-2);
     }
 
-    & li:nth-child(4n+3) a:hover { 
+    & li:nth-child(4n+3) a:hover {
       color: var(--color-cool-1);
     }
-
-    & li a:last-child {
-      margin-top: var(--space-xs);
-    }
   }
-  /* Use nth-child() with #n to select indexes that that are mod n */
-  
 }
-
-
-
 
 
 /* ******************************
 
-design-archives
+Design Archives
 
 ********************************* */
 
 .design-archives {
-  background-color: var(--color-warm-4);
   padding: var(--space-xl) 0;
   color: var(--color-cool-1);
-
-  & ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    display: flex;
-  }
+  background-color: var(--color-warm-4);
 
   & > * {
-    max-width: 600px;
+    max-width: var(--content-width);
   }
-
-  & a:hover {
-    color: var(--color-cool-4);
-  }
-
 
   & h3 {
     font-size: var(--font-size-lg);
     font-weight: 100;
   }
 
+  & ul {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
   & a {
     display: block;
+    width: calc(var(--content-width) / 2 - var(--space-md));
     padding: var(--space-sm) var(--space-md);
-    border: 1px solid;
     margin: 0 var(--space-sm);
     border-radius: 4rem;
+    color: var(--color-cool-5);
+    background-color: var(--color-warm-2);
     background-repeat: no-repeat;
     background-position: right center;
     background-size: 40px;
-
-    color: var(--color-cool-5);
-    background-color: var(--color-warm-2);
-    width: calc(600px / 2 - 2rem);
-    border: none;
   }
 
-    & a:hover {
-      background-color: var(--color-cool-1);
-    }
+  & a:hover {
+    color: var(--color-cool-4);
+    background-color: var(--color-cool-1);
   }
-  
-
-
+}
 
 
 /* ************************************
 
-zen-resources
+Zen Resources
 
 *************************************** */
 
 .zen-resources {
-  background-color: var(--color-warm-1);
   padding: var(--space-xl) 0;
   color: var(--color-cool-1);
+  background-color: var(--color-warm-1);
+
+  & h3 {
+    font-size: var(--font-size-lg);
+    font-weight: 100;
+  }
 
   & ul {
     padding: 0;
@@ -676,6 +659,7 @@ zen-resources
   & li:nth-child(3) {
     background-color: var(--color-warm-4);
   }
+
   & li:nth-child(4) {
     background-color: var(--color-warm-3);
   }
@@ -685,26 +669,15 @@ zen-resources
   }
 
   & a {
-    width: 600px;
-  }
-
-  & a {
-    color: var(--color-cool-1);
-    text-decoration: none;
+    display: block;
+    width: var(--content-width);
     padding: var(--space-md);
     margin: var(--space-xs) 0;
-    display: block;
-  }
-
-  & h3 {
-    font-size: var(--font-size-lg);
-    font-weight: 100;
+    color: var(--color-cool-1);
   }
 
   & a:hover {
-    background-color: var(--color-cool-1);
     color: var(--color-cool-4);
+    background-color: var(--color-cool-1);
   }
 }
-
-

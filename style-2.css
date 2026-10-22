@@ -1,14 +1,20 @@
+/* ********************************
+
+Custom properties
+
+********************************** */
+
 :root {
   /* Colors */
-  --color-bg: oklch(95.4% 0.003 247.9);      /* #EEF0F2 */
-  --color-text: oklch(22.6% 0 0);            /* #1C1C1C */
-  --color-accent: oklch(0.4529 0.1998 26.6);    /* #A4161A */
-  --color-accent-light: oklch(0.5912 0.2491 25.3); /* #E5383B */
+  --color-bg: oklch(0.954 0.003 247.9);             /* #EEF0F2 */
+  --color-text: oklch(0.226 0 0);                   /* #1C1C1C */
+  --color-accent: oklch(0.4529 0.1998 26.6);        /* #A4161A */
+  --color-accent-light: oklch(0.5912 0.2491 25.3);  /* #E5383B */
 
   /* Heading gradient stops */
-  --color-gradient-1: oklch(0.6853 0.2097 31.4);  /* rgb(233, 86, 63) */
-  --color-gradient-2: oklch(0.579 0.1899 246.71); /* rgb(50, 120, 216) */
-  --color-gradient-3: oklch(0.6088 0.2565 30.5 / 88.6%); /* rgba(244, 41, 18, 0.886) */
+  --color-gradient-1: oklch(0.6853 0.2097 31.4);
+  --color-gradient-2: oklch(0.579 0.1899 246.71);
+  --color-gradient-3: oklch(0.6088 0.2565 30.5 / 88.6%);
 
   /* Font sizes */
   --font-size-md: 2rem;
@@ -22,30 +28,36 @@
   --space-lg: 3rem;
 }
 
+
+/* ********************************
+
+Base styles
+
+********************************** */
+
 html {
   background-color: var(--color-bg);
 }
 
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  line-height: 1.5;
   font-weight: 300;
-  background-color: var(--color-bg);
+  line-height: 1.5;
   color: var(--color-text);
-}
-
-a {
-  color: var(--color-accent);
-  text-decoration: none;
-  font-weight: 400;
-}
-
-a:hover {
-  color: var(--color-accent-light);
 }
 
 * {
   margin: 0;
+}
+
+a {
+  font-weight: 400;
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-accent-light);
 }
 
 ul {
@@ -53,9 +65,21 @@ ul {
   list-style: none;
 }
 
-h1, h2, h3, p, footer, header {
+h1, h2, h3, p {
   margin-bottom: var(--space-sm);
 }
+
+/* Use first-line to target the first line! */
+p::first-line {
+  font-weight: 500;
+}
+
+
+/* ********************************
+
+Headings
+
+********************************** */
 
 h1 {
   font-size: var(--font-size-xxl);
@@ -64,16 +88,37 @@ h1 {
   text-align: right;
 }
 
+/* Text gradient fill */
 h2 {
+  padding-bottom: 10px;
+
   font-size: var(--font-size-xl);
   font-weight: 900;
   line-height: 0.9;
+
+  background-image: linear-gradient(
+    -135deg,
+    var(--color-gradient-1),
+    var(--color-gradient-2),
+    var(--color-gradient-3)
+  );
+  background-clip: text;
+  color: transparent;
+  /* color: rgba(0, 0, 0, 0.5); */
+  /* -webkit-text-fill-color: transparent; */
 }
 
 h3 {
   font-size: var(--font-size-lg);
   line-height: 1;
 }
+
+
+/* ********************************
+
+Page layout
+
+********************************** */
 
 .page-wrapper {
   display: flex;
@@ -83,12 +128,16 @@ h3 {
 }
 
 
+/* ********************************
+
+Intro
+
+********************************** */
 
 header {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-md);
-
   margin-top: var(--space-lg);
   margin-bottom: var(--space-lg);
 }
@@ -103,20 +152,27 @@ header {
   }
 }
 
+
+/* ********************************
+
+Main
+
+********************************** */
+
 .main {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-areas: 
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-areas:
     'a a a b b b'
     'c c c c c c'
     'd d d d d d'
     'e e e e e e';
-
   gap: var(--space-md);
 }
 
 .explanation {
   grid-area: a;
+
   & h3 {
     text-align: right;
   }
@@ -130,35 +186,24 @@ header {
   grid-area: c;
 }
 
-footer {
-  grid-area: e;
-  display: flex;
-  justify-content: center;
-  margin-bottom: var(--space-lg);
-
-  & a {
-    font-size: var(--font-size-md);
-    padding: var(--space-sm);
-  }
-}
-
 .requirements {
   grid-area: d;
 
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(6, 1fr);
   grid-template-rows: 3rem;
-  grid-template-areas: 
-  'a a a a a a'
-  'b b c c c c'
-  'd d d e e e'
-  'f f f f f f';
+  grid-template-areas:
+    'a a a a a a'
+    'b b c c c c'
+    'd d d e e e'
+    'f f f f f f';
   gap: var(--space-md);
 
   & h3 {
     grid-area: a;
     text-align: right;
   }
+
   & p:nth-child(2) {
     grid-area: b;
   }
@@ -180,17 +225,38 @@ footer {
   }
 }
 
+footer {
+  grid-area: e;
+
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--space-lg);
+
+  & a {
+    padding: var(--space-sm);
+    font-size: var(--font-size-md);
+  }
+}
+
+
+/* ********************************
+
+Sidebar
+
+********************************** */
+
 .wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-areas: 
-  'a b'
-  'a c';
+  grid-template-areas:
+    'a b'
+    'a c';
   gap: var(--space-md);
 }
 
 .design-selection {
   grid-area: a;
+
   & * {
     text-align: right;
   }
@@ -200,53 +266,34 @@ footer {
   grid-area: b;
 }
 
-.resources {
+.zen-resources {
   grid-area: c;
 }
 
 
-/* Grid containers */
+/* ********************************
 
-/* header, .preamble, .benefits, .main, .requirements, .wrapper, footer, .design-selection, .design-archives, .resources {
+Experiments and debugging
+
+********************************** */
+
+/* Grid containers */
+/* header, .preamble, .benefits, .main, .requirements, .wrapper, footer, .design-selection, .design-archives, .zen-resources {
   border: 2px solid cornflowerblue;
 } */
 
 /* Grid cells */
-
 /* h1, h2, h3, p, ul {
   border: 1px solid fuchsia;
 } */
 
-
-/* Add some grdients */
+/* Add some gradients */
 /* body {
   background: linear-gradient(red, blue);
 } */
 
-
-/* text Gradient Fill - Webkit only */
-h2 {
-  background-image: linear-gradient(
-    -135deg, 
-    var(--color-gradient-1), 
-    var(--color-gradient-2), 
-    var(--color-gradient-3));
-
-  background-clip: text;
-  /* color: rgba(0, 0, 0, 0.5); */
-  color: transparent;
-  /* -webkit-text-fill-color: transparent; */
-  padding-bottom: 10px;
-}
-
-/* Use first line to to target the first line! */
-p::first-line {
-  font-weight: 500;
-}
-
 /* Create drop cap */
 /* p::first-letter {
-  /* float */
   font-size: 2rem;
   float: left;
   margin-right: 0.5rem;
